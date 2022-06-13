@@ -8,7 +8,7 @@ pipeline{
 
             steps {
 
-                withMaven(maven: 'maven_3_5_0') {
+                withMaven(maven: 'maven_3_6_3') {
                     sh 'mvn clean install'
 
                 }
@@ -19,7 +19,7 @@ pipeline{
 
             steps {
 
-                withMaven(maven: 'maven_3_5_0') {
+                withMaven(maven: 'maven_3_6_3') {
                     sh 'mvn test'
 
                 }
@@ -40,5 +40,9 @@ pipeline{
         }
 
     }
-
+    post {
+      always {
+        emailext attachLog: true, body: 'test', mimeType: 'text/html', subject: 'cucumber-report', to: '1520413997@qq.com'
+      }
+    }
 }
