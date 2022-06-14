@@ -19,6 +19,7 @@ pipeline{
     }
     post {
       always {
+        print ${WORKSPACE}
         emailext attachLog: true, body: '${FILE, path="${WORKSPACE}/../builds/${BUILD_NUMBER}/cucumber-html-reports/overview-features.html"}', mimeType: 'text/html', subject: 'cucumber-report', to: '1520413997@qq.com'
       }
     }
