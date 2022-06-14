@@ -21,7 +21,7 @@ pipeline{
     }
     post {
       always {
-        print ${env.REPORT_PATH}
+        print "${env.REPORT_PATH}"
         emailext attachLog: true, body: '${FILE, path=${env.REPORT_PATH}}', mimeType: 'text/html', subject: 'cucumber-report', to: '1520413997@qq.com'
       }
     }
