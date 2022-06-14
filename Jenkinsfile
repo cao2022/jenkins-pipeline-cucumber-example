@@ -25,7 +25,7 @@ pipeline{
     }
 }
 
-report_path(){
+def report_path(){
     def report_path = "${WORKSPACE}/../builds/${BUILD_NUMBER}/cucumber-html-reports/overview-features.html"
     print report_path
 }
